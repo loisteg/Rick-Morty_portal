@@ -1,0 +1,136 @@
+@import "../../style/variables.scss";
+
+.char {
+  &__content {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 650px 425px;
+    column-gap: 25px;
+    align-items: start;
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    column-gap: 25px;
+    row-gap: 30px;
+  }
+  &__item {
+    width: 200px;
+    height: 400px;
+    background-color: $dark;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s transform;
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      transform: translate(-15px, -15px);
+    }
+    &_selected {
+      box-shadow: 0 5px 20px $main-color;
+      transform: translateY(-8px);
+    }
+    &-enter {
+      opacity: 0;
+    }
+    &-enter-active {
+      opacity: 1;
+      transition: opacity 500ms ease-in;
+    }
+    &-exit {
+      opacity: 1;
+    }
+    &-exit-active {
+      opacity: 0;
+      transition: opacity 500ms ease-in;
+    }
+  }
+  &__name {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 29px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  &__status {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 15px;
+  }
+  &__like {
+    margin-top: 25px;
+    cursor: pointer;
+    padding: 10px 7px;
+    font-size: 13px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px #fff solid;
+    border-radius: 7px;
+  }
+  &__like.active {
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px rgb(0, 0, 0) solid;
+    color: #000;
+  }
+  &__filter {
+    margin: 0 0 20px 0;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    box-shadow: 2px 2px 4px rgb(46, 46, 46);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    input {
+      margin-right: 20px;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .char {
+    &__content {
+      column-gap: 0px;
+    }
+    &__grid {
+      column-gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .char {
+    &__content {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 10px;
+    }
+    &__grid {
+      grid-template-columns: 1fr;
+      column-gap: 10px;
+    }
+    &__name {
+      font-size: 20px;
+    }
+    &__status {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .char {
+    &__content {
+      grid-template: auto auto / 1fr;
+      margin-top: 0;
+    }
+    &__list {
+      margin-top: 0px;
+      order: 2;
+    }
+    &__grid {
+      place-items: center;
+    }
+  }
+}
